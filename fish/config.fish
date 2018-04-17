@@ -1,0 +1,1 @@
+/home/philip/Repos/dotfiles/themer/current/config.fish

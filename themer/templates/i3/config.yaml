@@ -1,0 +1,23 @@
+variables:
+  level1fg: magenta
+  level1bg: green
+  level2fg: magenta
+  level2bg: green
+  level3fg: magenta
+  level3bg: green
+  level4fg: magenta
+  level4bg: green
+  level1fgalt: magenta
+  level1bgalt: green
+plugins:
+  parsers:
+    - themer.ColorParser
+  activators:
+    - themer.activators.i3.I3Activator
+files:
+  i3.tpl: i3.conf
+  fish.tpl: config.fish
+  powerline.tpl: colors.json
+  dunst.tpl: dunstrc
+  terminal.tpl: terminalrc
+
