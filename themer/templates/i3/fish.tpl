@@ -21,7 +21,7 @@ source "/usr/lib/python3.6/site-packages/powerline/bindings/fish/powerline-setup
 powerline-setup
 
 # some colors
-set fish_color_autosuggestion {{level4fg[1:]}}
+set fish_color_autosuggestion {{level3fg[1:]}}
 set fish_color_comment        {{level1fgalt[1:]}}
 set fish_color_command        {{level1fg[1:]}} --bold
 set fish_color_valid_path     {{level2fg[1:]}} --bold
