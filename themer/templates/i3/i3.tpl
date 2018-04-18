@@ -320,7 +320,7 @@ exec telegram-desktop
 exec --no-startup-id chromium
 #exec xchat
 exec xfce4-terminal --title=Scratch
-exec --no-startup-id sh ~/.config/i3/detect_displays.sh
+exec --no-startup-id compton -CGzcb
 exec --no-startup-id albert
 
 exec --no-startup-id powerline-daemon --replace
