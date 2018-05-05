@@ -321,6 +321,7 @@ exec --no-startup-id chromium
 #exec xchat
 exec xfce4-terminal --title=Scratch
 exec --no-startup-id compton -CGzcb
+exec --no-startup-id "feh --bg-scale /usr/share/backgrounds/bg.png"
 exec --no-startup-id albert
 
 exec --no-startup-id powerline-daemon --replace
