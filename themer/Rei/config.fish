@@ -45,9 +45,9 @@ alias Search='sudo pacman -Ss'
 alias Remove='sudo pacman -Rns'
 alias Clean='sudo pacman -Scc'
 
-alias AurUpdate='yaourt -Syua'
-alias AurSearch='yaourt -Ss'
-alias AurInstall='yaourt -S'
+alias AurUpdate='aurman -Syu'
+alias AurSearch='aurman -Ss'
+alias AurInstall='aurman -S'
 
 alias rand='echo "srand(time());rand(); exit" | calc | tail -n 1'
 
