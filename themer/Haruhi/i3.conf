@@ -43,6 +43,9 @@ bindsym $mod+Shift+Return exec thunar
 # start evince
 bindsym $mod+E exec evince
 
+# start write_stylus
+bindsym $mod+W exec write_stylus
+
 # kill focused window
 bindsym Control+Shift+q kill
 bindsym $mod+Shift+x kill
