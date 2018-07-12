@@ -328,7 +328,7 @@ exec --no-startup-id "feh --bg-scale /usr/share/backgrounds/bg.png"
 exec --no-startup-id albert
 
 exec --no-startup-id powerline-daemon --replace
-exec_always "killall powerline-lemonbar; powerline-lemonbar -o -d -- -t -f 'IPAGothic-11'"
+exec_always "killall powerline-lemonbar; powerline-lemonbar -o -d -- -t -o -1 -f 'IPAGothic-11'"
 
 bindsym $mod+Shift+g    mode "gaps"
 mode "gaps" {
