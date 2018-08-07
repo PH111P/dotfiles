@@ -17,7 +17,7 @@ function us_exit
 end
 
 # Powerline
-source "/usr/lib/python3.6/site-packages/powerline/bindings/fish/powerline-setup.fish"
+source "/usr/lib/python3.7/site-packages/powerline/bindings/fish/powerline-setup.fish"
 powerline-setup
 
 # some colors
