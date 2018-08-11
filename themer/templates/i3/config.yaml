@@ -21,5 +21,6 @@ files:
   powerline.tpl: colors.json
   dunst.tpl: dunstrc
   terminal.tpl: terminalrc
+  chrome.tpl: manifest.json
   #  gtk.tpl: gtk.css
   #  gtkrc.tpl: gtkrc
