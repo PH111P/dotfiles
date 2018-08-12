@@ -26,7 +26,7 @@ set fish_color_comment        522829
 set fish_color_command        dad9d5 --bold
 set fish_color_valid_path     dad9d5 --bold
 set fish_color_error          c7bbc7 --bold
-set fish_color_param          dad9d5
+set fish_color_param          62615f
 
 # Some important exports
 set -gx TERM xterm-256color

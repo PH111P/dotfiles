@@ -21,12 +21,12 @@ source "/usr/lib/python3.7/site-packages/powerline/bindings/fish/powerline-setup
 powerline-setup
 
 # some colors
-set fish_color_autosuggestion {{level3fg[1:]}}
+set fish_color_autosuggestion {{level2fg[1:]}}
 set fish_color_comment        {{level1fgalt[1:]}}
 set fish_color_command        {{level1fg[1:]}} --bold
 set fish_color_valid_path     {{level2fg[1:]}} --bold
 set fish_color_error          {{level1bgalt[1:]}} --bold
-set fish_color_param          {{level3fg[1:]}}
+set fish_color_param          {{level4bg[1:]}}
 
 # Some important exports
 set -gx TERM xterm-256color
