@@ -10,8 +10,8 @@
       "theme_ntp_background" : "bg.png"
     },
     "colors" : {
-      "frame" : [40, 19, 44],
-      "toolbar" : [160, 139, 158],
+      "frame" : [95, 32, 40],
+      "toolbar" : [184, 115, 74],
       "ntp_text" : [20, 40, 0],
       "ntp_link" : [36, 70, 0],
       "ntp_section" : [207, 221, 192],

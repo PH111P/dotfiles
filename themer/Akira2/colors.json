@@ -1,0 +1,41 @@
+{
+	"colors": {
+        "level:1_fg": "0xe9cb9e",
+        "level:1_bg": "0x28132c",
+        "level:2_fg": "0xe9cb9e",
+        "level:2_bg": "0x513955",
+        "level:3_fg": "0xfffecf",
+        "level:3_bg": "0xa08b9e",
+        "level:4_fg": "0x311929",
+        "level:4_bg": "0xd1bbcf",
+
+        "level:1_fg_alt": "0x331a2a",
+        "level:1_bg_alt": "0xe3c896",
+        "level:2_fg_alt": "0xe9cb9e",
+        "level:2_bg_alt": "0x513955",
+        "level:3_fg_alt": "0xfffecf",
+        "level:3_bg_alt": "0xa08b9e",
+        "level:4_fg_alt": "0x311929",
+        "level:4_bg_alt": "0xd1bbcf",
+
+        "level:1_fg_vis":   222,
+        "level:1_bg_vis":   208,
+
+        "level:1_fg_rep":   231,
+        "level:1_bg_rep":    52
+	},
+	"gradients": {
+		"dark_GREEN_Orange_red":    ["0x2d862d", "0xff9933", "0xff0000"],
+		"GREEN_Orange_red":         ["0x33cc33", "0xff9933", "0xff0000"],
+		"green_yellow_red":         ["0x33cc33", "0xffd700", "0xff0000"],
+		"green_yellow_orange_red":  ["0x33cc33", "0xffd700", "0xff9933", "0xff0000"],
+		"yellow_red":               ["0xffd700", "0xff0000"],
+		"yellow_orange_red":        ["0xffd700", "0xff9933", "0xff0000"],
+		"blue_red":                 ["0x0099ff", "0xff0000"],
+		"white_red":                ["0xe0f4f3", "0xff0000"],
+        "lv3_red":                  ["0xfffecf", "0xff0000"],
+        "lv4_red":                  ["0x311929", "0xff0000"],
+		"dark_green_gray":          ["0x51b000", "0x9d9e9d"],
+		"light_green_gray":			["0xa3d900", "0xbcbcbb"]
+	}
+}
