@@ -12,10 +12,13 @@
     "colors" : {
       "frame" : [128, 140, 200],
       "toolbar" : [205, 213, 233],
-      "ntp_text" : [20, 40, 0],
-      "ntp_link" : [36, 70, 0],
+      "ntp_background" : [205, 213, 233],
+      "ntp_text" : [95, 95, 95],
+      "bookmark_text" : [95, 95, 95],
+      "tab_text" : [255, 255, 255],
+      "ntp_text" : [255, 255, 255],
       "ntp_section" : [207, 221, 192],
-      "button_background" : [255, 255, 255]
+      "button_background" : [163, 177, 217]
     },
     "tints" : {
       "buttons" : [0.33, 0.5, 0.47]
