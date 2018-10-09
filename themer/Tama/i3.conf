@@ -331,7 +331,7 @@ exec --no-startup-id libinput-gestures-setup start
 
 exec --no-startup-id powerline-daemon --replace
 exec --no-startup-id powerline-globmenu
-exec_always "killall powerline-lemonbar; powerline-lemonbar --use_defaults -R -H 1.6 -- -f 'IPAGothic-{1}' -t -o 0 -o 1 -o -1 -o -1"
+exec_always "killall powerline-lemon; killall powerline-lemonbar; powerline-lemonbar --use_defaults -R -H 1.6 -- -f 'IPAGothic-{1}' -t -o 0 -o 1 -o -1 -o -1"
 
 bindsym $mod+Shift+g    mode "gaps"
 mode "gaps" {
