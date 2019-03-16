@@ -273,6 +273,8 @@ bindsym $mod+s mark "_tmp"; swap with mark "_swp"; [con_mark="_tmp"] mark "_swp"
 
 set $eDP1 "eDP1"
 set $HDMI1 "HDMI1"
+set $DP2 "DP1-1"
+set $DP3 "DP1-3"
 
 # workspace assignment
 workspace 1 output $eDP1
@@ -290,16 +292,19 @@ workspace 12 output $eDP1
 
 workspace F1 output $HDMI1
 workspace F2 output $HDMI1
-workspace F3 output $HDMI1
-workspace F4 output $HDMI1
-workspace F5 output $HDMI1
-workspace F6 output $HDMI1
 workspace F7 output $HDMI1
 workspace F8 output $HDMI1
-workspace F9 output $HDMI1
-workspace F10 output $HDMI1
-workspace F11 output $HDMI1
-workspace F12 output $HDMI1
+workspace F3 output $DP2
+workspace F4 output $DP2
+workspace F9 output $DP2
+workspace F10 output $DP2
+workspace F5 output $DP3
+workspace F6 output $DP3
+workspace F11 output $DP3
+workspace F12 output $DP3
+
+workspace  output $DP2
+workspace ♫ output $DP2
 
 bindsym Mod1+Mod4+1 workspace 
 bindsym Mod1+Mod4+2 workspace ♫
