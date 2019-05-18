@@ -20,9 +20,21 @@
 
         "level:1_fg_vis":   222,
         "level:1_bg_vis":   208,
+        "level:2_fg_vis": "0xfce573",
+        "level:2_bg_vis": "0xa34545",
+        "level:3_fg_vis": "0xfeea8b",
+        "level:3_bg_vis": "0xb8734a",
+        "level:4_fg_vis": "0x7f3033",
+        "level:4_bg_vis": "0xdeb76c",
 
         "level:1_fg_rep":   231,
-        "level:1_bg_rep":    52
+        "level:1_bg_rep":    52,
+        "level:2_fg_rep": "0xfce573",
+        "level:2_bg_rep": "0xa34545",
+        "level:3_fg_rep": "0xfeea8b",
+        "level:3_bg_rep": "0xb8734a",
+        "level:4_fg_rep": "0x7f3033",
+        "level:4_bg_rep": "0xdeb76c"
 	},
 	"gradients": {
 		"dark_GREEN_Orange_red":    ["0x2d862d", "0xff9933", "0xff0000"],
