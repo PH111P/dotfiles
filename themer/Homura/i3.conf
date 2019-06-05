@@ -274,7 +274,7 @@ bindsym $mod+s mark "_tmp"; swap with mark "_swp"; [con_mark="_tmp"] mark "_swp"
 set $eDP1 "eDP1"
 set $HDMI1 "HDMI1"
 set $DP2 "DP1-1"
-set $DP3 "DP1-3"
+set $DP3 "DP1-2"
 
 # workspace assignment
 workspace 1 output $eDP1
