@@ -17,25 +17,16 @@ endif
 
 call vundle#begin()
 
-Plugin 'scrooloose/nerdtree'
-let g:NERDTreeWinPos = "right"
-
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
 Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 
-nmap <F8> :TagbarToggle<CR>
-Plugin 'majutsushi/tagbar'
-
-Plugin 'leafgarland/typescript-vim'
+let g:tex_flavor='latex'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/Repos/dotfiles/snippets']
 
 syntax on
 set number
@@ -52,7 +43,8 @@ set autoread
 nmap <leader>w :w!<cr>
 
 nmap <leader>m :w!<cr>:make! %<<cr>
-nmap <leader>p :w!<cr>:!texfot pdflatex %<<cr>
+nmap <leader>p :w!<cr>:!texfot --quiet pdflatex %<<cr>
+nmap <leader>z :w!<cr>:!texfot --quiet lualatex %<<cr>
 nmap <leader>b :w!<cr>:!bibtex %<<cr>
 
 " Turn on the WiLd menu
@@ -114,7 +106,7 @@ set tm=500
 " set foldcolumn=1
 
 try
-    colorscheme pablo
+    colorscheme elflord
 catch
 endtry
 
@@ -170,7 +162,7 @@ python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
 
-" let g:airline_theme='luna'
+" let g:airline_theme='alduin'
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline_powerline_fonts = 1
 
