@@ -19,6 +19,7 @@ call vundle#begin()
 
 Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
+Plugin 'peder2tm/sved'
 
 let g:tex_flavor='latex'
 
@@ -39,12 +40,17 @@ set secure
 " Set to auto read when a file is changed from the outside
 set autoread
 
+
+"SyncTex
+
+nmap <leader>e :call SVED_Sync()<cr>
+
 " Fast saving
 nmap <leader>w :w!<cr>
 
 nmap <leader>m :w!<cr>:make! %<<cr>
-nmap <leader>p :w!<cr>:!texfot --quiet pdflatex %<<cr>
-nmap <leader>z :w!<cr>:!texfot --quiet lualatex %<<cr>
+nmap <leader>p :w!<cr>:!texfot --quiet pdflatex -synctex=1 %<<cr>
+nmap <leader>z :w!<cr>:!texfot --quiet lualatex -synctex=1 %<<cr>
 nmap <leader>b :w!<cr>:!bibtex %<<cr>
 
 " Turn on the WiLd menu
