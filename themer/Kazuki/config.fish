@@ -17,8 +17,12 @@ function us_exit
 end
 
 # Powerline
-source "/usr/lib/python3.7/site-packages/powerline/bindings/fish/powerline-setup.fish"
+set PYTHON_SITE_PATH (python -c "import site; print(site.getsitepackages()[0])")
+source "$PYTHON_SITE_PATH/powerline/bindings/fish/powerline-setup.fish"
 powerline-setup
+
+function fish_vi_cursor
+end
 
 # some colors
 set fish_color_autosuggestion d8f8ff

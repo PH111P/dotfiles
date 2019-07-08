@@ -303,8 +303,8 @@ workspace F6 output $DP3
 workspace F11 output $DP3
 workspace F12 output $DP3
 
-workspace  output $DP2
-workspace ♫ output $DP2
+workspace  output $eDP1
+workspace ♫ output $eDP1
 
 bindsym Mod1+Mod4+1 workspace 
 bindsym Mod1+Mod4+2 workspace ♫
