@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "name": "themer theme",
+  "manifest_version": 2,
+  "theme": {
+    "images" : {
+      "theme_frame" : "bg.png",
+      "theme_frame_overlay" : "bg.png",
+      "theme_toolbar" : "bg.png",
+      "theme_ntp_background" : "bg.png"
+    },
+    "colors" : {
+      "frame" : [12, 7, 8],
+      "toolbar" : [12, 7, 8],
+      "ntp_background" : [12, 7, 8],
+      "ntp_text" : [255, 162, 243],
+      "bookmark_text" : [255, 162, 243],
+      "tab_text" : [130, 231, 231],
+      "ntp_text" : [226, 223, 4],
+      "ntp_section" : [207, 221, 192],
+      "button_background" : [12, 7, 8]
+    },
+    "tints" : {
+      "buttons" : [0.33, 0.5, 0.47]
+    },
+    "properties" : {
+      "ntp_background_alignment" : "center"
+    }
+  }
+}
