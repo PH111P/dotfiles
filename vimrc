@@ -50,6 +50,7 @@ nmap <leader>w :w!<cr>
 
 nmap <leader>m :w!<cr>:make! %<<cr>
 nmap <leader>p :w!<cr>:!texfot --quiet pdflatex -synctex=1 %<<cr>
+nmap <leader>a :w!<cr>:!texfot --quiet pdflatex -synctex=1 main<cr>
 nmap <leader>z :w!<cr>:!texfot --quiet lualatex -synctex=1 %<<cr>
 nmap <leader>b :w!<cr>:!bibtex %<<cr>
 
