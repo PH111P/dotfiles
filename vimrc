@@ -140,9 +140,11 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-" Linebreak on 500 characters
+" Linebreak on 90 characters
 set lbr
-set tw=500
+set tw=90
+
+set spell
 
 set ai "Auto indent
 set si "Smart indent
@@ -160,6 +162,8 @@ autocmd BufReadPost *
      \ endif
 " Remember info about open buffers on close
 set viminfo^=%
+
+
 
 " Always show the status line
 set laststatus=2
