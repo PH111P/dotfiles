@@ -20,6 +20,26 @@ call vundle#begin()
 Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
 Plugin 'peder2tm/sved'
+Plugin 'reedes/vim-wordy'
+
+let g:wordy#ring = [
+  \ 'weak',
+  \ ['being', 'passive-voice', ],
+  \ 'business-jargon',
+  \ 'weasel',
+  \ 'puffery',
+  \ ['problematic', 'redundant', ],
+  \ ['colloquial', 'idiomatic', 'similies', ],
+  \ 'art-jargon',
+  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
+  \ 'adjectives',
+  \ 'adverbs',
+  \ ]
+
+nnoremap <Space> @q
+noremap <silent> <F8> :<C-u>NextWordy<cr>
+xnoremap <silent> <F8> :<C-u>NextWordy<cr>
+inoremap <silent> <F8> <C-o>:NextWordy<cr>
 
 let g:tex_flavor='latex'
 
@@ -40,6 +60,8 @@ set secure
 " Set to auto read when a file is changed from the outside
 set autoread
 
+set list
+set listchars=tab:>-
 
 "SyncTex
 
@@ -50,9 +72,13 @@ nmap <leader>w :w!<cr>
 
 nmap <leader>m :w!<cr>:make! %<<cr>
 nmap <leader>p :w!<cr>:!texfot --quiet pdflatex -synctex=1 %<<cr>
-nmap <leader>a :w!<cr>:!texfot --quiet pdflatex -synctex=1 main<cr>
+nmap <leader>a :w!<cr>:!texfot --quiet lualatex -synctex=1 main<cr>
 nmap <leader>z :w!<cr>:!texfot --quiet lualatex -synctex=1 %<<cr>
 nmap <leader>b :w!<cr>:!bibtex %<<cr>
+nmap <leader>f :%py3f /usr/share/clang/clang-format.py<cr>:w!<cr>
+
+:autocmd BufEnter *.cpp :inoremap ä \xe4|inoremap é \xe9|inoremap ö \xf6|inoremap ü \xfc|inoremap Ä \xc4|inoremap É \xc9|inoremap Ö \xd6|inoremap Ü \xdc|inoremap ß \xdf
+
 
 " Turn on the WiLd menu
 set wildmenu
@@ -198,7 +224,7 @@ autocmd BufEnter * set mouse=
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <F2> :NERDTreeToggle<CR>
 
-let g:ycm_server_python_interpreter='/usr/bin/python2'
+let g:ycm_server_python_interpreter='/usr/bin/python'
 let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]

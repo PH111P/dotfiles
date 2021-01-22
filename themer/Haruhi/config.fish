@@ -41,6 +41,8 @@ set -gx DEVKITARM /opt/devkitpro/devkitARM
 
 # some alias
 
+alias g++='g++ -std=c++11 -O2 -static -w'
+
 alias Update='aurman -Syu --noconfirm'
 alias Install='sudo pacman -S'
 alias Search='sudo pacman -Ss'

@@ -273,6 +273,7 @@ bindsym $mod+s mark "_tmp"; swap with mark "_swp"; [con_mark="_tmp"] mark "_swp"
 
 set $eDP1 "eDP1"
 set $HDMI1 "HDMI1"
+set $DP1 "DP1"
 set $DP2 "DP1-1"
 set $DP3 "DP1-2"
 
@@ -283,12 +284,12 @@ workspace 3 output $eDP1
 workspace 4 output $eDP1
 workspace 5 output $eDP1
 workspace 6 output $eDP1
-workspace 7 output $eDP1
-workspace 8 output $eDP1
-workspace 9 output $eDP1
-workspace 10 output $eDP1
-workspace 11 output $eDP1
-workspace 12 output $eDP1
+workspace 7 output $DP1
+workspace 8 output $DP1
+workspace 9 output $DP1
+workspace 10 output $DP1
+workspace 11 output $DP1
+workspace 12 output $DP1
 
 workspace F1 output $HDMI1
 workspace F2 output $HDMI1
@@ -306,9 +307,10 @@ workspace F12 output $DP3
 workspace  output $eDP1
 workspace ♫ output $eDP1
 
-bindsym Mod1+Mod4+1 workspace 
-bindsym Mod1+Mod4+2 workspace ♫
+bindsym Mod1+Mod4+1 workspace T
+bindsym Mod1+Mod4+2 workspace D
 bindsym Mod1+Mod4+3 workspace C
+bindsym Mod1+Mod4+4 workspace ♫
 
 # reload the configuration file
 for_window[title="Chromium"] move workspace C
@@ -316,8 +318,9 @@ assign [class="^Xchat$"] 
 assign [class="^Skype$"] 
 for_window[title="VLC"] move workspace ♫
 assign [class="^Google Play Music Desktop Player$"] ♫
-for_window[title="Thunderbird"] move workspace 
-assign [class="^TelegramDesktop$"] 
+for_window[title="Thunderbird"] move workspace T
+assign [class="^TelegramDesktop$"] T
+for_window[title="Discord"] move workspace D
 
 for_window[title="^Scratch$"] move scratchpad
 
@@ -325,10 +328,11 @@ for_window[title="^Scratch$"] move scratchpad
 #exec skype
 exec thunderbird
 exec telegram-desktop
+exec discord
 exec --no-startup-id chromium
 #exec xchat
 exec xfce4-terminal --title=Scratch
-exec --no-startup-id picom -CGcb
+exec --no-startup-id picom -CGcb -i1.0
 exec --no-startup-id "feh --bg-scale /usr/share/backgrounds/bg.png"
 exec --no-startup-id albert
 
@@ -337,6 +341,8 @@ exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id powerline-daemon --replace
 exec --no-startup-id powerline-globmenu
 exec_always "killall powerline-lemon; killall powerline-lemonbar; powerline-lemonbar --use_defaults -R -H 1.6 -- -f 'IPAGothic-{1}' -t -o 0 -o 1 -o -1 -o -1"
+
+bindsym $mod+Shift+P exec "killall powerline-lemon; killall powerline-lemonbar; powerline-lemonbar --use_defaults -R -H 1.6 -c 1.8 -- -f 'IPAGothic-{1}' -t -o -1 -o 0 -o -2 -o -1"
 
 bindsym $mod+Shift+g    mode "gaps"
 mode "gaps" {
