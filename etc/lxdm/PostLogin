@@ -7,7 +7,7 @@ redshift -l 49.23:7.05 -t 5500:2500 -b 1.0:0.8 &
 pactl set-sink-volume 0 '0%' &
 
 export XKB_DEFAULT_LAYOUT=de
-export XKB_DEFAULT_VARIANT=neo
+export XKB_DEFAULT_VARIANT=neo_qwerty
 export XKB_DEFAULT_OPTIONS=compose:ralt
 
 export GTK_IM_MODULE=ibus

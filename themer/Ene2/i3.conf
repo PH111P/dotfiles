@@ -41,27 +41,17 @@ bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Shift+Return exec thunar
 
 # start evince
-bindsym $mod+E exec evince
-
-# start write_stylus
-bindsym $mod+W exec write_stylus
+bindsym $mod+z exec evince
 
 # kill focused window
-bindsym Control+Shift+q kill
-bindsym $mod+Shift+x kill
-
-# start dmenu (a program launcher)
-#bindsym $mod+a exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+a exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+udiaeresis kill
 
 # change focus
-bindsym $mod+n focus left
-bindsym $mod+r focus down
-bindsym $mod+t focus up
-bindsym $mod+d focus right
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+odiaeresis focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -70,10 +60,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+n move left
-bindsym $mod+Shift+r move down
-bindsym $mod+Shift+t move up
-bindsym $mod+Shift+d move right
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+odiaeresis move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -82,18 +72,18 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+j split h
+bindsym $mod+adiaeresis split h
 
 # split in vertical orientation
-bindsym $mod+y split v
+bindsym $mod+minus split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+i layout stacking
-bindsym $mod+v layout tabbed
-bindsym $mod+l layout toggle split
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -102,7 +92,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+u focus parent
+bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -212,15 +202,15 @@ bindsym Mod1+Mod4+X workspace X
 bindsym Mod1+Mod4+Y workspace Y
 bindsym Mod1+Mod4+Z workspace Z
 
-bindsym $mod+Shift+v reload
+bindsym $mod+Shift+t reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+c restart
+bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+l exec "i3-nagbar -t warning -m 'End i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'End i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # lock screen
 #bindsym Control+$mod+l exec i3-msg workspace lock && i3lock -i /home/philip/Projects/Rechteckschoner/rechteckschoner.png && exec i3-msg workspace back_and_forth
-bindsym Control+$mod+l exec sh -c "xsecurelock || kill -9 -1"
+bindsym Control+$mod+e exec sh -c "xsecurelock || kill -9 -1"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -230,10 +220,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym n resize shrink width 10 px or 10 ppt
-        bindsym r resize grow height 10 px or 10 ppt
-        bindsym t resize shrink height 10 px or 10 ppt
-        bindsym d resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym odiaeresis resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 5 px or 5 ppt
@@ -254,8 +244,8 @@ mode "launch" {
 
 bindsym $mod+b border toggle
 
-bindsym $mod+p move scratchpad
-bindsym $mod+o scratchpad show
+bindsym $mod+h move scratchpad
+bindsym $mod+g scratchpad show
 
 # pulse audio volume control
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -263,13 +253,15 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 bindsym XF86MonBrightnessUp exec /usr/bin/xbacklight -inc 10
+bindsym F4 exec /usr/bin/xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 5
+bindsym F3 exec /usr/bin/xbacklight -dec 5
 
 bindsym XF86Display exec sh ~/.config/i3/detect_displays.sh
 
 bindsym $mod+m mark "_swp"
 bindsym $mod+Shift+m unmark "_swp"
-bindsym $mod+s mark "_tmp"; swap with mark "_swp"; [con_mark="_tmp"] mark "_swp"
+bindsym $mod+comma mark "_tmp"; swap with mark "_swp"; [con_mark="_tmp"] mark "_swp"
 
 set $eDP1 "eDP1"
 set $HDMI1 "HDMI1"
