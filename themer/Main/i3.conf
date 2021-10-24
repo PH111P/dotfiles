@@ -328,7 +328,7 @@ for_window[title="^Scratch$"] move scratchpad
 #exec skype
 exec thunderbird
 exec telegram-desktop
-exec discord
+#exec discord
 exec --no-startup-id chromium
 #exec xchat
 exec xfce4-terminal --title=Scratch

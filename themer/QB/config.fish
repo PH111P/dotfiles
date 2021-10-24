@@ -80,6 +80,11 @@ alias :q='exit'
 
 alias cal='cal -m'
 
+alias 暦='cal -m'
+alias お掃除='sudo pacman -Scc'
+alias 更新='aurman -Syu --devel'
+alias 切るが良い='killall telegram-deskto thunderbird Discord'
+
 alias uni='sudo openconnect asa1.uni-saarland.de'
 alias mpi='sudo openconnect sslvpn.mpi-klsb.mpg.de'
 alias vpn='sudo openconnect uswdc1-ovpn-udp.pointtoserver.com'
