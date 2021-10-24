@@ -41,7 +41,7 @@ noremap <silent> <F8> :<C-u>NextWordy<cr>
 xnoremap <silent> <F8> :<C-u>NextWordy<cr>
 inoremap <silent> <F8> <C-o>:NextWordy<cr>
 
-let g:tex_flavor='latex'
+let g:tex_flavor='lualatex'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -67,13 +67,24 @@ set listchars=tab:>-
 
 nmap <leader>e :call SVED_Sync()<cr>
 
+nmap <Leader>u :noh<CR>
+
+function! WC()
+    let filename = expand("%")
+    let cmd = "detex " . filename . " | wc -w | tr -d [:space:]"
+    let result = system(cmd)
+    echo result . " words"
+endfunction
+
+command WC call WC()
+
 " Fast saving
 nmap <leader>w :w!<cr>
 
 nmap <leader>m :w!<cr>:make! %<<cr>
-nmap <leader>p :w!<cr>:!texfot --quiet pdflatex -synctex=1 %<<cr>
-nmap <leader>a :w!<cr>:!texfot --quiet lualatex -synctex=1 main<cr>
-nmap <leader>z :w!<cr>:!texfot --quiet lualatex -synctex=1 %<<cr>
+nmap <leader>p :w!<cr>:!texfot --quiet pdflatex -synctex=1 --shell-escape %<<cr>
+nmap <leader>a :w!<cr>:!texfot --quiet lualatex -synctex=1 --shell-escape main<cr>
+nmap <leader>z :w!<cr>:!texfot --quiet lualatex -synctex=1 --shell-escape %<<cr>
 nmap <leader>b :w!<cr>:!bibtex %<<cr>
 nmap <leader>f :%py3f /usr/share/clang/clang-format.py<cr>:w!<cr>
 
@@ -206,8 +217,8 @@ python3 del powerline_setup
 " let g:airline_powerline_fonts = 1
 
 
-let $CXXFLAGS='-std=c++11 -O2 -lm -lcrypt -g3 -ggdb'
-let $CFLAGS='-std=c11 -O2 -lm -lcrypt -g3 -ggdb'
+let $CXXFLAGS='-std=c++20 -lm -lcrypt -g3 -ggdb'
+let $CFLAGS='-std=c11 -lm -lcrypt -g3 -ggdb'
 
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
