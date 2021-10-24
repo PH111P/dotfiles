@@ -82,9 +82,9 @@ command WC call WC()
 nmap <leader>w :w!<cr>
 
 nmap <leader>m :w!<cr>:make! %<<cr>
-nmap <leader>p :w!<cr>:!texfot --quiet pdflatex -synctex=1 --shell-escape %<<cr>
-nmap <leader>a :w!<cr>:!texfot --quiet lualatex -synctex=1 --shell-escape main<cr>
-nmap <leader>z :w!<cr>:!texfot --quiet lualatex -synctex=1 --shell-escape %<<cr>
+nmap <leader>v :w!<cr>:!texfot --quiet pdflatex -synctex=1 --shell-escape %<<cr>
+nmap <leader>d :w!<cr>:!texfot --quiet lualatex -synctex=1 --shell-escape main<cr>
+nmap <leader>n :w!<cr>:!texfot --quiet lualatex -synctex=1 --shell-escape %<<cr>
 nmap <leader>b :w!<cr>:!bibtex %<<cr>
 nmap <leader>f :%py3f /usr/share/clang/clang-format.py<cr>:w!<cr>
 
