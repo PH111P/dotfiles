@@ -1,3 +1,4 @@
 themer/templates/i3/plugins/__pycache__/
 *.pak
 themer/current
+.config/powerline/gcalendar_credentials
