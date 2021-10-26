@@ -30,7 +30,7 @@ set fish_color_comment        000000
 set fish_color_command        bbddff --bold
 set fish_color_valid_path     71bcff --bold
 set fish_color_error          5b81ba --bold
-set fish_color_param          0c5190
+set fish_color_param          9f9fcf
 
 # Some important exports
 set -gx TERM xterm-256color
