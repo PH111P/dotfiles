@@ -11,3 +11,5 @@ fi
 export GTK_MODULES
 export UBUNTU_MENUPROXY
 export NO_AT_BRIDGE=1
+
+export PATH="/home/philip/.local/share/solana/install/active_release/bin:$PATH"

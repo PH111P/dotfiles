@@ -181,7 +181,7 @@ set tabstop=4
 set lbr
 set tw=90
 
-set spell
+autocmd FileType tex setlocal spell
 
 set ai "Auto indent
 set si "Smart indent

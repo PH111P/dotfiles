@@ -286,16 +286,16 @@ workspace 8 output $HDMI1
 workspace 9 output $HDMI1
 workspace 0 output $HDMI1
 
-workspace F1 output $DP1a
-workspace F2 output $DP1a
+workspace F1 output $DP2a $DP1a
+workspace F2 output $DP2a $DP1a
 workspace F3 output $DP1a
-workspace F4 output $DP1b
-workspace F5 output $DP1b
-workspace F6 output $DP1b
-workspace F7 output $DP2a
-workspace F8 output $DP2a
-workspace F9 output $DP2a
-workspace F10 output $DP2b
+workspace F4 output $DP1a
+workspace F5 output $DP2a
+workspace F6 output $DP2a
+workspace F7 output $DP1b $DP2b
+workspace F8 output $DP1b $DP2b
+workspace F9 output $DP1b
+workspace F10 output $DP1b
 workspace F11 output $DP2b
 workspace F12 output $DP2b
 
