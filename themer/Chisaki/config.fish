@@ -25,12 +25,12 @@ function fish_vi_cursor
 end
 
 # some colors
-set fish_color_autosuggestion 71bcff
-set fish_color_comment        000000
-set fish_color_command        bbddff --bold
-set fish_color_valid_path     71bcff --bold
-set fish_color_error          5b81ba --bold
-set fish_color_param          9f9fcf
+set fish_color_autosuggestion e9cb9e
+set fish_color_comment        331a2a
+set fish_color_command        e9cb9e --bold
+set fish_color_valid_path     e9cb9e --bold
+set fish_color_error          e3c896 --bold
+set fish_color_param          d1bbcf
 
 # Some important exports
 set -gx TERM xterm-256color

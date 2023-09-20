@@ -21,6 +21,18 @@ Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
 Plugin 'peder2tm/sved'
 Plugin 'reedes/vim-wordy'
+Bundle 'rodnaph/vim-color-schemes'
+
+let g:vimtex_view_method = 'sioyek'
+
+" let g:vimtex_view_general_options = '--reuse-instance'
+"            \ . ' --inverse-search'
+"            \ .   '"vim -v --not-a-term -T dumb -c \"VimtexInverseSearch %2 ''%1''\""'
+"            \ . ' --forward-search-file @tex --forward-search-line @line @pdf'
+
+if empty(v:servername) && exists('*remote_startserver')
+    call remote_startserver('VIM')
+endif
 
 let g:wordy#ring = [
   \ 'weak',
@@ -51,6 +63,13 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/Repos/dotfiles/snippets']
 
 syntax on
 set number
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+
 set clipboard=unnamed
 
 " Force to load vimrc from local dir
@@ -65,7 +84,8 @@ set listchars=tab:>-
 
 "SyncTex
 
-nmap <leader>e :call SVED_Sync()<cr>
+" nmap <leader>e :call SVED_Sync()<cr>
+nmap <leader>e :VimtexView<cr>
 
 nmap <Leader>u :noh<CR>
 
@@ -217,7 +237,7 @@ python3 del powerline_setup
 " let g:airline_powerline_fonts = 1
 
 
-let $CXXFLAGS='-std=c++20 -lm -lcrypt -g3 -ggdb'
+let $CXXFLAGS='-std=c++23 -lm -lcrypt -g3 -ggdb'
 let $CFLAGS='-std=c11 -lm -lcrypt -g3 -ggdb'
 
 fun! <SID>StripTrailingWhitespaces()
