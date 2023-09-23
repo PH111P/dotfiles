@@ -12,46 +12,44 @@ runtime! archlinux.vim
 
 " Vim needs a POSIX-Compliant shell. Fish is not.
 if $SHELL =~ 'bin/fish'
-    set shell=/bin/sh
+    set shell=/bin/bash
 endif
 
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
 Plugin 'peder2tm/sved'
 Plugin 'reedes/vim-wordy'
+Plugin 'KeitaNakamura/tex-conceal.vim'
 
-let g:wordy#ring = [
-  \ 'weak',
-  \ ['being', 'passive-voice', ],
-  \ 'business-jargon',
-  \ 'weasel',
-  \ 'puffery',
-  \ ['problematic', 'redundant', ],
-  \ ['colloquial', 'idiomatic', 'similies', ],
-  \ 'art-jargon',
-  \ ['contractions', 'opinion', 'vague-time', 'said-synonyms', ],
-  \ 'adjectives',
-  \ 'adverbs',
-  \ ]
+if empty(v:servername) && exists('*remote_startserver')
+    call remote_startserver('VIM')
+endif
 
 nnoremap <Space> @q
-noremap <silent> <F8> :<C-u>NextWordy<cr>
-xnoremap <silent> <F8> :<C-u>NextWordy<cr>
-inoremap <silent> <F8> <C-o>:NextWordy<cr>
+
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 let g:tex_flavor='lualatex'
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=[$HOME.'/Repos/dotfiles/snippets']
-
 syntax on
 set number
+
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+    autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+
 set clipboard=unnamed
+
+
 
 " Force to load vimrc from local dir
 set exrc
@@ -63,9 +61,13 @@ set autoread
 set list
 set listchars=tab:>-
 
+let mapleader=';'
+
 "SyncTex
 
-nmap <leader>e :call SVED_Sync()<cr>
+" nmap <leader>e :call SVED_Sync()<cr>
+let g:vimtex_view_method = 'sioyek'
+nmap <leader>e :VimtexView<cr>
 
 nmap <Leader>u :noh<CR>
 
@@ -78,24 +80,21 @@ endfunction
 
 command WC call WC()
 
+
 " Fast saving
-nmap <leader>w :w!<cr>
+nnoremap <leader>w <cmd>w!<cr>
 
-nmap <leader>m :w!<cr>:make! %<<cr>
-nmap <leader>p :w!<cr>:!texfot --quiet pdflatex -synctex=1 --shell-escape %<<cr>
-nmap <leader>a :w!<cr>:!texfot --quiet lualatex -synctex=1 --shell-escape main<cr>
-nmap <leader>z :w!<cr>:!texfot --quiet lualatex -synctex=1 --shell-escape %<<cr>
-nmap <leader>b :w!<cr>:!bibtex %<<cr>
-nmap <leader>f :%py3f /usr/share/clang/clang-format.py<cr>:w!<cr>
+nnoremap <leader>m <cmd>w!<cr><cmd>make! %<<cr>
+nmap <leader>f <cmd>%py3f /usr/share/clang/clang-format.py<cr>:w!<cr>
 
-:autocmd BufEnter *.cpp :inoremap ä \xe4|inoremap é \xe9|inoremap ö \xf6|inoremap ü \xfc|inoremap Ä \xc4|inoremap É \xc9|inoremap Ö \xd6|inoremap Ü \xdc|inoremap ß \xdf
+:autocmd BufEnter *.cpp <cmd>inoremap ä \xe4|inoremap é \xe9|inoremap ö \xf6|inoremap ü \xfc|inoremap Ä \xc4|inoremap É \xc9|inoremap Ö \xd6|inoremap Ü \xdc|inoremap ß \xdf
 
 
 " Turn on the WiLd menu
 set wildmenu
 
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc
+set wildignore=*.o,*~,*.pyc,*.aux,*.blg,*.bbl,*.brf,*.log,*.out
 if has("win16") || has("win32")
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 else
@@ -109,7 +108,7 @@ set ruler
 set cmdheight=1
 
 " Configure backspace so it acts as it should act
-" set backspace=eol,start,indent
+set backspace=indent,eol,start
 
 set whichwrap+=<,>,h,l
 
@@ -146,20 +145,19 @@ set novisualbell
 set t_vb=
 set tm=500
 
-set conceallevel=2
-
 " Add a bit extra margin to the left
 " set foldcolumn=1
 
 try
-    colorscheme elflord
+    colorscheme sorbet
+    hi Normal guibg=NONE ctermbg=NONE
 catch
 endtry
 
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
+nmap <silent> <A-Up> <cmd>wincmd k<CR>
+nmap <silent> <A-Down> <cmd>wincmd j<CR>
+nmap <silent> <A-Left> <cmd>wincmd h<CR>
+nmap <silent> <A-Right> <cmd>wincmd l<CR>
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -189,8 +187,8 @@ set wrap "Wrap lines
 
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :call VisualSelection('f', '')<CR>
-vnoremap <silent> # :call VisualSelection('b', '')<CR>
+vnoremap <silent> * <cmd>call VisualSelection('f', '')<CR>
+vnoremap <silent> # <cmd>call VisualSelection('b', '')<CR>
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -212,12 +210,8 @@ python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
 
-" let g:airline_theme='alduin'
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline_powerline_fonts = 1
 
-
-let $CXXFLAGS='-std=c++20 -lm -lcrypt -g3 -ggdb'
+let $CXXFLAGS='-std=c++23 -lm -lcrypt -g3 -ggdb'
 let $CFLAGS='-std=c11 -lm -lcrypt -g3 -ggdb'
 
 fun! <SID>StripTrailingWhitespaces()
@@ -230,15 +224,6 @@ endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 autocmd BufEnter * set mouse=
-
-"autocmd vimenter * NERDTree
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-map <F2> :NERDTreeToggle<CR>
-
-let g:ycm_server_python_interpreter='/usr/bin/python'
-let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
 
 " undo history
 set undofile
