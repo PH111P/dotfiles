@@ -13,14 +13,8 @@ plugins:
   parsers:
     - themer.ColorParser
   activators:
-    - themer.activators.i3.I3Activator
     - wallpaper.WallpaperActivator
 files:
-  i3.tpl: i3.conf
   fish.tpl: config.fish
   powerline.tpl: colors.json
-  dunst.tpl: dunstrc
-  terminal.tpl: terminalrc
   chrome.tpl: manifest.json
-  #  gtk.tpl: gtk.css
-  #  gtkrc.tpl: gtkrc
