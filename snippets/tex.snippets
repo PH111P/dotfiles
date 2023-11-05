@@ -1,0 +1,555 @@
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+
+def comment():
+	return vim.eval('vimtex#syntax#in_comment()') == '1'
+
+def env(name):
+	[x,y] = vim.eval("vimtex#env#is_inside('" + name + "')")
+	return x != '0' and y != '0'
+
+endglobal
+
+snippet ;; "\" iA
+\
+endsnippet
+
+snippet ;1 "\{}" iA
+\\$1{$2}$0
+endsnippet
+
+snippet ;2 "\{}{}" iA
+\\$1{$2}{$3}$0
+endsnippet
+
+snippet ;3 "\{}{}{}" iA
+\\$1{$2}{$3}{$4}$0
+endsnippet
+
+snippet ;beg "begin{} / end{}" wA
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+
+snippet ;im "Math" wA
+\(${1}\)`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+snippet ;dm "Math" wA
+\[
+${1:${VISUAL}}
+$2\]
+$0
+endsnippet
+
+snippet ;als "Align" bA
+\begin{align*}
+	${1:${VISUAL}}
+$2\end{align*}
+$0
+endsnippet
+
+context "math()"
+snippet ;sup "superscript" iA
+^{$1}$0
+endsnippet
+
+context "math()"
+snippet ;sub "subscript" iA
+_{$1}$0
+endsnippet
+
+snippet ;pos "position" iA
+\position{$1}$0
+endsnippet
+
+snippet ;setn "[n]" iA
+\setn{$1}$0
+endsnippet
+
+snippet ;fcc "fragment cc" iA
+\fragment{$1}{$2}$0
+endsnippet
+
+snippet ;fco "fragment co" iA
+\fragmentco{$1}{$2}$0
+endsnippet
+
+snippet ;foc "fragment oc" iA
+\fragmentoc{$1}{$2}$0
+endsnippet
+
+snippet ;foo "fragment oo" iA
+\fragmentoo{$1}{$2}$0
+endsnippet
+
+
+snippet ;enum "Enumerate" bA
+\begin{enumerate}
+	\item $0
+\end{enumerate}
+endsnippet
+
+snippet ;item "Itemize" bA
+\begin{itemize}
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet ;desc "Description" b
+\begin{description}
+	\item[$1] $0
+\end{description}
+endsnippet
+
+context "math()"
+snippet != "equals" iA
+\neq
+endsnippet
+
+context "math()"
+snippet ... "dots" iA
+\dots
+endsnippet
+
+context "math()"
+snippet c.. "cdots" iA
+\cdots
+endsnippet
+
+context "math()"
+snippet v.. "vdots" iA
+\vdots
+endsnippet
+
+snippet @a "alpha" iA
+\alpha
+endsnippet
+
+snippet @b "beta" iA
+\beta
+endsnippet
+
+snippet @c "gamma" iA
+\gamma
+endsnippet
+
+snippet @G "Gamma" iA
+\Gamma
+endsnippet
+
+snippet @e "epsilon" iA
+\varepsilon
+endsnippet
+
+snippet @f "phi" iA
+\varphi
+endsnippet
+
+snippet @F "Phi" iA
+\Phi
+endsnippet
+
+context "math()"
+snippet ;end "tag-qedhere" iA
+\tag*{\qedhere}
+endsnippet
+
+context "math()"
+snippet ;ceil "ceil" iA
+\left\lceil $1 \right\rceil $0
+endsnippet
+
+context "math()"
+snippet ;floor "floor" iA
+\left\lfloor $1 \right\rfloor$0
+endsnippet
+
+context "math()"
+snippet ;( "( )" iA
+( ${1:${VISUAL}} ) $0
+endsnippet
+
+context "math()"
+snippet ;lr( "left( right)" iA
+\left( ${1:${VISUAL}} \right) $0
+endsnippet
+
+context "math()"
+snippet ;lr| "left| right|" iA
+\left| ${1:${VISUAL}} \right| $0
+endsnippet
+
+context "math()"
+snippet ;br "\{ \}" iA
+\\{ ${1:${VISUAL}} \\} $0
+endsnippet
+
+context "math()"
+snippet ;lr{ "left\{ right\}" iA
+\left\\{ ${1:${VISUAL}} \right\\} $0
+endsnippet
+
+context "math()"
+snippet ;lrb "left\{ right\}" iA
+\left\\{ ${1:${VISUAL}} \right\\} $0
+endsnippet
+
+context "math()"
+snippet ;lr[ "left[ right]" iA
+\left[ ${1:${VISUAL}} \right] $0
+endsnippet
+
+context "math()"
+snippet ;lra "leftangle rightangle" iA
+\left\langle${1:${VISUAL}} \right\rangle$0
+endsnippet
+
+
+context "math()"
+snippet ;sum "sum" w
+\sum_{n=${1:1}}^{${2:\infty}} ${3:a_n z^n}
+endsnippet
+
+context "math()"
+snippet ;taylor "taylor" w
+\sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1 $0
+endsnippet
+
+context "math()"
+snippet ;lim "limit" w
+\lim_{${1:n} \to ${2:\infty}}
+endsnippet
+
+context "math()"
+snippet ;limsup "limsup" w
+\limsup_{${1:n} \to ${2:\infty}}
+endsnippet
+
+context "math()"
+snippet ;prod "product" w
+\prod_{${1:n=${2:1}}}^{${3:\infty}} ${4:${VISUAL}} $0
+endsnippet
+
+
+context "math()"
+snippet <= "leq" iA
+\le
+endsnippet
+
+context "math()"
+snippet >= "geq" iA
+\ge
+endsnippet
+
+context "math()"
+snippet := ":=" iA
+\coloneqq
+endsnippet
+
+snippet ;tikz "tikz figure" wA
+\begin{figure}
+\centering
+\begin{tikzpicture}
+$2
+\end{tikzpicture}
+\caption{$3}
+\label{fig:${1}}
+\end{figure}
+$0
+endsnippet
+
+snippet ;node "Tikz node" w
+\node[$5] (${1/[^0-9a-zA-Z]//g}${2}) ${3:at (${4:0,0}) }{${1}};
+$0
+endsnippet
+
+context "math()"
+snippet ;mcal "mathcal" iA
+\mathcal{$1}$0
+endsnippet
+
+
+priority 100
+context "math()"
+snippet -> "to" iA
+\to
+endsnippet
+
+priority 200
+context "math()"
+snippet <-> "leftrightarrow" iA
+\leftrightarrow
+endsnippet
+
+context "math()"
+snippet !> "mapsto" iA
+\mapsto
+endsnippet
+
+
+context "math()"
+snippet ;- "setminus" iA
+\setminus
+endsnippet
+
+snippet >> ">>" iA
+\gg
+endsnippet
+
+snippet << "<<" iA
+\ll
+endsnippet
+
+snippet ;: "mid" iA
+ \mid
+endsnippet
+
+context "math()"
+snippet ;sbs "subset" Ai
+\subseteq
+endsnippet
+
+context "math()"
+snippet ;sps "subset" Ai
+\supseteq
+endsnippet
+
+snippet ;notin "not in " iA
+\not\in
+endsnippet
+
+context "math()"
+snippet ;in "in " iA
+\in
+endsnippet
+
+snippet ;N "n" iA
+\N
+endsnippet
+
+snippet ;cap "cap" iA
+\cap
+endsnippet
+
+snippet ;cup "cup" iA
+\cup
+endsnippet
+
+snippet ;CUP "bigcup" iA
+\bigcup_{${1:i \in ${2: I}}} $0
+endsnippet
+
+snippet ;CAP "bigcap" iA
+\bigcap_{${1:i \in ${2: I}}} $0
+endsnippet
+
+
+snippet ;0 "emptyset" iA
+\emptyset
+endsnippet
+
+snippet ;R "real" iA
+\R
+endsnippet
+
+snippet ;Q "Q" iA
+\Q
+endsnippet
+
+snippet ;Z "Z" iA
+\Z
+endsnippet
+
+
+context "math()"
+snippet ;t "text" iA
+\text{$1}$0
+endsnippet
+
+context "math()"
+snippet ;case "cases" wA
+\begin{cases}
+	$1
+\end{cases}
+endsnippet
+
+# Lemmas and stuff
+snippet ;rst "restatable" iA
+\begin{restatable}{$1}{$2}\label{$1:$2}
+	$0
+\end{restatable}
+endsnippet
+
+snippet ;php "comment" wA
+\php{$1} $0
+endsnippet
+
+context "math()"
+snippet ;O "O(...)" iA
+\Oh($1)$0
+endsnippet
+
+
+context "math()"
+snippet ;Th "Theta(...)" iA
+\Theta($1)$0
+endsnippet
+
+context "math()"
+snippet ;Om "Omega(...)" iA
+\Omega($1)$0
+endsnippet
+
+snippet "π" "pi" riA
+\pi
+endsnippet
+
+snippet "Π" "Pi" riA
+\Pi
+endsnippet
+
+snippet "α" "alpha" riA
+\alpha
+endsnippet
+
+snippet "β" "beta" riA
+\beta
+endsnippet
+
+snippet "γ" "gamma" riA
+\gamma
+endsnippet
+
+snippet "Γ" "Gamma" riA
+\Gamma
+endsnippet
+
+snippet "φ" "phi" riA
+\varphi
+endsnippet
+
+snippet "Σ" "Sigma" riA
+\sum
+endsnippet
+
+snippet "Θ" "Theta" riA
+\Theta
+endsnippet
+
+snippet "ω" "omega" riA
+\omega
+endsnippet
+
+snippet "Ω" "Omega" riA
+\Omega
+endsnippet
+
+snippet "τ" "tau" riA
+\tau
+endsnippet
+
+snippet "δ" "delta" riA
+\delta
+endsnippet
+
+snippet "Δ" "Delta" riA
+\Delta
+endsnippet
+
+snippet "∇" "Sankaku" riA
+\nabla
+endsnippet
+
+snippet "ε" "epsilon" riA
+\varepsilon
+endsnippet
+
+snippet "⇐" "larr" riA
+\Longleftarrow
+endsnippet
+
+snippet "⇔" "lrarr" riA
+\Longleftrightarrow
+endsnippet
+
+snippet "⇒" "rarrow" riA
+\Longrightarrow
+endsnippet
+
+snippet "∘" "circ" riA
+\circ
+endsnippet
+
+snippet "∈" "in" riA
+\in
+endsnippet
+
+snippet "•" "cdot" riA
+\cdot
+endsnippet
+
+snippet "∀" "forall" riA
+\forall
+endsnippet
+
+snippet "∃" "exists" riA
+\exists
+endsnippet
+
+snippet "∩" "cap" riA
+\cap
+endsnippet
+
+snippet "∪" "cup" riA
+\cup
+endsnippet
+
+snippet "⊂" "subset" riA
+\subset
+endsnippet
+
+snippet "ℕ" "nats" riA
+\mathbb{N}
+endsnippet
+
+snippet "ℤ" "ints" riA
+\mathbb{Z}
+endsnippet
+
+snippet "ℚ" "rats" riA
+\mathbb{Q}
+endsnippet
+
+snippet "ℂ" "comps" riA
+\mathbb{C}
+endsnippet
+
+snippet "—" "em" riA
+---
+endsnippet
+
+snippet "×" "times" riA
+\times
+endsnippet
+
+snippet "“" "``" riA
+\`\`
+endsnippet
+
+snippet "”" "''" riA
+''
+endsnippet
+
+snippet "„" ",," riA
+,,
+endsnippet
+
+# vim:ft=snippets
