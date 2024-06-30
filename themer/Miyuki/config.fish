@@ -20,8 +20,8 @@ set fish_color_autosuggestion ffffff
 set fish_color_comment        ffffff
 set fish_color_command        ffffff --bold
 set fish_color_valid_path     ffffff --bold
-set fish_color_error          2facff --bold
-set fish_color_param          eef0f6
+set fish_color_error          43455A --bold
+set fish_color_param          F9F8FD
 
 # Some important exports
 set -gx TERM xterm-256color
