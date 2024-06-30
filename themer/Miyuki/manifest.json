@@ -11,8 +11,8 @@
     },
     "colors" : {
       "frame" : [173, 104, 65],
-      "toolbar" : [193, 207, 132],
-      "ntp_background" : [193, 207, 132],
+      "toolbar" : [210, 225, 140],
+      "ntp_background" : [210, 225, 140],
       "ntp_text" : [0, 0, 95],
       "bookmark_text" : [0, 0, 95],
       "tab_text" : [255, 255, 255],
