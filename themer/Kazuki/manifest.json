@@ -1,13 +1,14 @@
 {
   "version": "1.0",
   "name": "themer theme",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "theme": {
     "images" : {
       "theme_frame" : "bg.png",
       "theme_frame_overlay" : "bg.png",
       "theme_toolbar" : "bg.png",
       "theme_ntp_background" : "bg.png"
+      "theme_tab_background" : "bg.png"
     },
     "colors" : {
       "frame" : [28, 31, 75],
