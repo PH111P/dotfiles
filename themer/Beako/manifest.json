@@ -7,7 +7,7 @@
       "theme_frame" : "bg.png",
       "theme_frame_overlay" : "bg.png",
       "theme_toolbar" : "bg.png",
-      "theme_ntp_background" : "bg.png"
+      "theme_ntp_background" : "bg.png",
       "theme_tab_background" : "bg.png"
     },
     "colors" : {
@@ -25,7 +25,8 @@
       "buttons" : [0.33, 0.5, 0.47]
     },
     "properties" : {
-      "ntp_background_alignment" : "center"
+      "ntp_background_alignment" : "center",
+      "ntp_background_repeat" : "no-repeat"
     }
   }
 }
