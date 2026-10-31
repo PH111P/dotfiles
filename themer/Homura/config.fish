@@ -34,7 +34,7 @@ set -gx DEVKITARM /opt/devkitpro/devkitARM
 
 alias g++='g++-13 -std=c++23 -O2 -static -w'
 
-alias Update='brew update; and brew upgrade'
+alias Update='brew update; and brew upgrade -y'
 alias Install='brew install'
 alias Search='brew search'
 alias Remove='brew remove'

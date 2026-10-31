@@ -5,6 +5,8 @@ end
 # fish config
 set fish_greeting
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 alias python='python3'
 
 # Powerline
@@ -57,6 +59,6 @@ alias mpi='sudo openconnect sslvpn.mpi-klsb.mpg.de'
 
 alias calc='ipython'
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 export LANG="ja_JP.UTF8"
+# Created by `pipx` on 2026-09-30 00:48:00
+set PATH $PATH /Users/philip/.local/bin
